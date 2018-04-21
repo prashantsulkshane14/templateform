@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Registration </h1>
+    <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+
+      <div class="form-group">
+        <label for="firstName"> First Name*</label>
+        <input type="text" id="firstName" name="firstName" pattern="[a-zA-Z][a-zA-Z]+" ngModel #userFirst="ngModel" class="form-control"
+          required>
+        <div *ngIf="userFirst.touched">
+          <div *ngIf="userFirst.errors?.required" class="alert alert-danger">
+            First Name is Required
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="middleName">Middle Name*</label>
+        <input type="text" id="middleName" name="middleName" #userMiddle="ngModel" ngModel class="form-control" pattern="[a-zA-Z][a-zA-Z]+"
+          required>
+        <div *ngIf="userMiddle.touched">
+          <div *ngIf="userMiddle.errors?.required" class="alert alert-danger">
+            Middle Name is Required
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="lastName">Last Name*</label>
+        <input type="text" id="lastName" name="lastName" #userLast="ngModel" ngModel class="form-control" pattern="[a-zA-Z][a-zA-Z]+"
+          required>
+        <div *ngIf="userLast.touched">
+          <div *ngIf="userLast.errors?.required" class="alert alert-danger">
+            Last Name is Required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email*</label>
+        <input type="email" id="email" name="email" #userEmail="ngModel" ngModel class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+
+        <div *ngIf="userEmail.touched">
+          <div *ngIf="userEmail.errors?.required" class="alert alert-danger">
+            Email is Required
+          </div>
+          <div *ngIf="userEmail.errors?.pattern" class="alert alert-danger">
+              Enter valid Email
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address*</label>
+        <input type="text" id="address" name="address" #userAddress="ngModel" ngModel class="form-control" required>
+        <div *ngIf="userAddress.touched">
+          <div *ngIf="userAddress.errors?.required" class="alert alert-danger">
+            Address is Required
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="city">City*</label>
+        <input type="text" id="city" name="city" ngModel #userCity="ngModel" class="form-control" pattern="[a-zA-Z][a-zA-Z]*" required>
+        <div *ngIf="userCity.touched">
+          <div *ngIf="userCity.errors?.required" class="alert alert-danger">
+            City is Required
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="state">State*</label>
+        <input type="text" id="state" name="state" #userState="ngModel" ngModel class="form-control" pattern="[a-zA-Z][a-zA-Z]+"
+          required>
+        <div *ngIf="userState.touched">
+          <div *ngIf="userState.errors?.required" class="alert alert-danger">
+            State is Required
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="mobileNumber">Mobile Number*</label>
+        <input type="text" id="mobileNumber" name="mobileNumber" #userMobile="ngModel" ngModel class="form-control" pattern="[0-9]{10}"
+          required>
+        <div *ngIf="userMobile.touched">
+          <div *ngIf="userMobile.errors?.required" class="alert alert-danger">
+            Mobile Number is Required
+          </div>
+          <div *ngIf="userMobile.errors?.pattern" class="alert alert-danger">
+            Mobile Number Must Be 10 digit
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="telephone">Telephone Number</label>
+        <input type="text" id="telephone" name="telephone" #userTelepn="ngModel" ngModel class="form-control" maxlength="10" minlength="10" pattern="[0-9]{10}">
+        <div *ngIf="userTelepn.touched">
+          <div *ngIf="userTelepn.errors?.pattern" class="alert alert-danger">
+            Mobile Number Must Be 10 digit
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password*</label>
+        <input type="text" id="password" name="password" #userPassword="ngModel" ngModel class="form-control" required>
+        <div *ngIf="userPassword.touched">
+          <div *ngIf="userPassword.errors?.required" class="alert alert-danger">
+            Password is Required
+          </div>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-success" [disabled]="myForm.invalid" type="submit">Submit</button>
+        <button class="btn btn-warning" type="reset">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--   {{myForm.value | json}} -->
